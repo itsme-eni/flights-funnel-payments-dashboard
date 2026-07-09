@@ -1,0 +1,9 @@
+pandas
+numpy
+matplotlib
+jupyter
+notebook
+ipykernel
+scipy
+sqlalchemy
+duckdb
