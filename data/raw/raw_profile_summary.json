@@ -1,0 +1,853 @@
+{
+  "rows": 100000,
+  "columns": 25,
+  "column_names": [
+    "Unnamed: 0",
+    "date_time",
+    "site_name",
+    "posa_continent",
+    "user_location_country",
+    "user_location_region",
+    "user_location_city",
+    "orig_destination_distance",
+    "user_id",
+    "is_mobile",
+    "is_package",
+    "channel",
+    "srch_ci",
+    "srch_co",
+    "srch_adults_cnt",
+    "srch_children_cnt",
+    "srch_rm_cnt",
+    "srch_destination_id",
+    "srch_destination_type_id",
+    "is_booking",
+    "cnt",
+    "hotel_continent",
+    "hotel_country",
+    "hotel_market",
+    "hotel_cluster"
+  ],
+  "date_time_min": "2013-01-07 00:33:47",
+  "date_time_max": "2014-12-31 23:47:14",
+  "srch_ci_min": "2013-01-07",
+  "srch_ci_max": "2016-05-10",
+  "srch_co_min": "2013-01-08",
+  "srch_co_max": "2016-05-13",
+  "booking_rate": 0.07993,
+  "mobile_share": 0.13377,
+  "package_share": 0.24814,
+  "profiles": [
+    {
+      "column": "Unnamed: 0",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 100000,
+      "examples": [
+        "24636210",
+        "19837144",
+        "13066459"
+      ],
+      "top_values": [
+        [
+          "24636210",
+          1
+        ],
+        [
+          "19837144",
+          1
+        ],
+        [
+          "13066459",
+          1
+        ],
+        [
+          "4691082",
+          1
+        ],
+        [
+          "4878884",
+          1
+        ]
+      ]
+    },
+    {
+      "column": "date_time",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 99886,
+      "examples": [
+        "2014-11-03 16:02:28",
+        "2013-03-13 19:25:01",
+        "2014-10-13 13:20:25"
+      ],
+      "top_values": [
+        [
+          "2014-08-06 13:28:12",
+          2
+        ],
+        [
+          "2014-12-15 13:19:11",
+          2
+        ],
+        [
+          "2014-04-10 18:00:01",
+          2
+        ],
+        [
+          "2013-09-04 18:27:02",
+          2
+        ],
+        [
+          "2014-09-08 10:37:37",
+          2
+        ]
+      ]
+    },
+    {
+      "column": "site_name",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 41,
+      "examples": [
+        "24",
+        "11",
+        "2"
+      ],
+      "top_values": [
+        [
+          "2",
+          63028
+        ],
+        [
+          "11",
+          6955
+        ],
+        [
+          "24",
+          6446
+        ],
+        [
+          "37",
+          5426
+        ],
+        [
+          "34",
+          4686
+        ]
+      ]
+    },
+    {
+      "column": "posa_continent",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 5,
+      "examples": [
+        "2",
+        "3",
+        "1"
+      ],
+      "top_values": [
+        [
+          "3",
+          74840
+        ],
+        [
+          "1",
+          11879
+        ],
+        [
+          "2",
+          9438
+        ],
+        [
+          "4",
+          3135
+        ],
+        [
+          "0",
+          708
+        ]
+      ]
+    },
+    {
+      "column": "user_location_country",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 201,
+      "examples": [
+        "77",
+        "205",
+        "66"
+      ],
+      "top_values": [
+        [
+          "66",
+          53910
+        ],
+        [
+          "205",
+          11112
+        ],
+        [
+          "3",
+          5982
+        ],
+        [
+          "69",
+          5212
+        ],
+        [
+          "77",
+          2492
+        ]
+      ]
+    },
+    {
+      "column": "user_location_region",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 779,
+      "examples": [
+        "871",
+        "135",
+        "314"
+      ],
+      "top_values": [
+        [
+          "174",
+          10864
+        ],
+        [
+          "348",
+          4997
+        ],
+        [
+          "354",
+          4558
+        ],
+        [
+          "442",
+          3774
+        ],
+        [
+          "220",
+          3702
+        ]
+      ]
+    },
+    {
+      "column": "user_location_city",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 10779,
+      "examples": [
+        "36643",
+        "38749",
+        "48562"
+      ],
+      "top_values": [
+        [
+          "5703",
+          2046
+        ],
+        [
+          "48862",
+          1627
+        ],
+        [
+          "25315",
+          1095
+        ],
+        [
+          "24103",
+          1025
+        ],
+        [
+          "36086",
+          923
+        ]
+      ]
+    },
+    {
+      "column": "orig_destination_distance",
+      "non_null": 63915,
+      "nulls": 36085,
+      "null_pct": 36.09,
+      "unique_non_null": 62206,
+      "examples": [
+        "456.1151",
+        "232.4737",
+        "4468.272"
+      ],
+      "top_values": [
+        [
+          "0.3936",
+          7
+        ],
+        [
+          "42.9461",
+          7
+        ],
+        [
+          "227.2723",
+          7
+        ],
+        [
+          "97.7308",
+          7
+        ],
+        [
+          "1953.3002",
+          6
+        ]
+      ]
+    },
+    {
+      "column": "user_id",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 88863,
+      "examples": [
+        "792280",
+        "961995",
+        "495669"
+      ],
+      "top_values": [
+        [
+          "783124",
+          6
+        ],
+        [
+          "582339",
+          5
+        ],
+        [
+          "936342",
+          5
+        ],
+        [
+          "519112",
+          5
+        ],
+        [
+          "777956",
+          5
+        ]
+      ]
+    },
+    {
+      "column": "is_mobile",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 2,
+      "examples": [
+        "0",
+        "1"
+      ],
+      "top_values": [
+        [
+          "0",
+          86623
+        ],
+        [
+          "1",
+          13377
+        ]
+      ]
+    },
+    {
+      "column": "is_package",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 2,
+      "examples": [
+        "1",
+        "0"
+      ],
+      "top_values": [
+        [
+          "0",
+          75186
+        ],
+        [
+          "1",
+          24814
+        ]
+      ]
+    },
+    {
+      "column": "channel",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 11,
+      "examples": [
+        "1",
+        "9",
+        "0"
+      ],
+      "top_values": [
+        [
+          "9",
+          55352
+        ],
+        [
+          "0",
+          12523
+        ],
+        [
+          "1",
+          10274
+        ],
+        [
+          "2",
+          7836
+        ],
+        [
+          "5",
+          6158
+        ]
+      ]
+    },
+    {
+      "column": "srch_ci",
+      "non_null": 99878,
+      "nulls": 122,
+      "null_pct": 0.12,
+      "unique_non_null": 1066,
+      "examples": [
+        "2014-12-15",
+        "2013-03-13",
+        "2015-04-03"
+      ],
+      "top_values": [
+        [
+          "2014-12-26",
+          600
+        ],
+        [
+          "2014-12-27",
+          541
+        ],
+        [
+          "2014-12-31",
+          479
+        ],
+        [
+          "2014-12-29",
+          458
+        ],
+        [
+          "2014-12-28",
+          441
+        ]
+      ]
+    },
+    {
+      "column": "srch_co",
+      "non_null": 99878,
+      "nulls": 122,
+      "null_pct": 0.12,
+      "unique_non_null": 1068,
+      "examples": [
+        "2014-12-19",
+        "2013-03-14",
+        "2015-04-10"
+      ],
+      "top_values": [
+        [
+          "2015-01-02",
+          579
+        ],
+        [
+          "2015-01-01",
+          544
+        ],
+        [
+          "2014-12-28",
+          530
+        ],
+        [
+          "2015-01-03",
+          492
+        ],
+        [
+          "2014-11-30",
+          480
+        ]
+      ]
+    },
+    {
+      "column": "srch_adults_cnt",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 10,
+      "examples": [
+        "2",
+        "1",
+        "4"
+      ],
+      "top_values": [
+        [
+          "2",
+          65560
+        ],
+        [
+          "1",
+          21550
+        ],
+        [
+          "3",
+          5414
+        ],
+        [
+          "4",
+          5290
+        ],
+        [
+          "6",
+          861
+        ]
+      ]
+    },
+    {
+      "column": "srch_children_cnt",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 10,
+      "examples": [
+        "0",
+        "1",
+        "2"
+      ],
+      "top_values": [
+        [
+          "0",
+          78747
+        ],
+        [
+          "1",
+          11294
+        ],
+        [
+          "2",
+          8134
+        ],
+        [
+          "3",
+          1359
+        ],
+        [
+          "4",
+          366
+        ]
+      ]
+    },
+    {
+      "column": "srch_rm_cnt",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 9,
+      "examples": [
+        "1",
+        "2",
+        "4"
+      ],
+      "top_values": [
+        [
+          "1",
+          91673
+        ],
+        [
+          "2",
+          6671
+        ],
+        [
+          "3",
+          1077
+        ],
+        [
+          "4",
+          295
+        ],
+        [
+          "5",
+          117
+        ]
+      ]
+    },
+    {
+      "column": "srch_destination_id",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 8827,
+      "examples": [
+        "8286",
+        "1842",
+        "8746"
+      ],
+      "top_values": [
+        [
+          "8250",
+          3568
+        ],
+        [
+          "8267",
+          2739
+        ],
+        [
+          "8791",
+          1691
+        ],
+        [
+          "8268",
+          1409
+        ],
+        [
+          "8253",
+          1310
+        ]
+      ]
+    },
+    {
+      "column": "srch_destination_type_id",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 8,
+      "examples": [
+        "1",
+        "3",
+        "5"
+      ],
+      "top_values": [
+        [
+          "1",
+          61909
+        ],
+        [
+          "6",
+          22269
+        ],
+        [
+          "3",
+          7338
+        ],
+        [
+          "5",
+          4757
+        ],
+        [
+          "4",
+          3351
+        ]
+      ]
+    },
+    {
+      "column": "is_booking",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 2,
+      "examples": [
+        "0",
+        "1"
+      ],
+      "top_values": [
+        [
+          "0",
+          92007
+        ],
+        [
+          "1",
+          7993
+        ]
+      ]
+    },
+    {
+      "column": "cnt",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 32,
+      "examples": [
+        "1",
+        "3",
+        "2"
+      ],
+      "top_values": [
+        [
+          "1",
+          74456
+        ],
+        [
+          "2",
+          15159
+        ],
+        [
+          "3",
+          5417
+        ],
+        [
+          "4",
+          2233
+        ],
+        [
+          "5",
+          1080
+        ]
+      ]
+    },
+    {
+      "column": "hotel_continent",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 7,
+      "examples": [
+        "0",
+        "2",
+        "6"
+      ],
+      "top_values": [
+        [
+          "2",
+          52557
+        ],
+        [
+          "6",
+          19967
+        ],
+        [
+          "3",
+          13052
+        ],
+        [
+          "4",
+          11541
+        ],
+        [
+          "0",
+          1911
+        ]
+      ]
+    },
+    {
+      "column": "hotel_country",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 178,
+      "examples": [
+        "63",
+        "198",
+        "105"
+      ],
+      "top_values": [
+        [
+          "50",
+          47876
+        ],
+        [
+          "8",
+          5149
+        ],
+        [
+          "198",
+          4681
+        ],
+        [
+          "105",
+          3593
+        ],
+        [
+          "70",
+          3192
+        ]
+      ]
+    },
+    {
+      "column": "hotel_market",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 1843,
+      "examples": [
+        "1258",
+        "786",
+        "29"
+      ],
+      "top_values": [
+        [
+          "628",
+          4746
+        ],
+        [
+          "675",
+          4205
+        ],
+        [
+          "682",
+          2252
+        ],
+        [
+          "19",
+          2158
+        ],
+        [
+          "701",
+          2069
+        ]
+      ]
+    },
+    {
+      "column": "hotel_cluster",
+      "non_null": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique_non_null": 100,
+      "examples": [
+        "68",
+        "37",
+        "22"
+      ],
+      "top_values": [
+        [
+          "91",
+          2783
+        ],
+        [
+          "41",
+          1988
+        ],
+        [
+          "48",
+          1951
+        ],
+        [
+          "64",
+          1911
+        ],
+        [
+          "65",
+          1815
+        ]
+      ]
+    }
+  ]
+}
