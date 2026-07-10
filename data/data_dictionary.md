@@ -27,35 +27,35 @@ This means:
 - Light missingness: `srch_ci` and `srch_co` are each 0.12% null
 - Most fields are coded IDs (country, region, destination, hotel market, hotel cluster)
 
-## Column-by-column dictionary
+## Column-by-column dictionary (name + actual interpretation)
 
-| Column | Type (raw) | Meaning | Data quality / notes |
-|---|---|---|---|
-| `Unnamed: 0` | Integer-like ID | Row identifier from source extract | 100% present; unique per row in this sample. Safe to treat as technical key only. |
-| `date_time` | Datetime string | Timestamp when search event happened | 100% present; very high cardinality (near-unique). |
-| `site_name` | Categorical code | Expedia site/brand identifier where event occurred | 41 unique values. Dominated by code `2`. |
-| `posa_continent` | Categorical code | Point-of-sale continent (user market) | 5 unique values. Mostly code `3`. |
-| `user_location_country` | Categorical code | User country code | 201 unique values. Mostly code `66`. |
-| `user_location_region` | Categorical code | User region/state code | 779 unique values. |
-| `user_location_city` | Categorical code | User city code | 10,779 unique values. |
-| `orig_destination_distance` | Float-like | Distance between user origin and searched destination | 36.09% null; numeric when present; high cardinality. |
-| `user_id` | Integer-like ID | Anonymous user identifier | 100% present; 88,863 unique users in 100,000 rows. |
-| `is_mobile` | Binary flag (`0/1`) | Event came from mobile channel | 100% present; 13.38% are mobile. |
-| `is_package` | Binary flag (`0/1`) | Search/booking was part of package flow | 100% present; 24.81% are package. |
-| `channel` | Categorical code | Marketing/acquisition channel code | 11 unique values; mostly code `9`. |
-| `srch_ci` | Date string | Search check-in date | 0.12% null; range 2013-01-07 to 2016-05-10. |
-| `srch_co` | Date string | Search check-out date | 0.12% null; range 2013-01-08 to 2016-05-13. |
-| `srch_adults_cnt` | Integer-like | Number of adults in request | 100% present; mostly 1-2 adults. |
-| `srch_children_cnt` | Integer-like | Number of children in request | 100% present; mostly 0 children. |
-| `srch_rm_cnt` | Integer-like | Number of rooms requested | 100% present; mostly 1 room. |
-| `srch_destination_id` | Categorical code | Destination identifier used by source system | 8,827 unique values. |
-| `srch_destination_type_id` | Categorical code | Destination type hierarchy code | 8 unique values; mostly code `1` then `6`. |
-| `is_booking` | Binary target-like flag (`0/1`) | Indicates whether row is a booking | 100% present; positive class is 7.99%. |
-| `cnt` | Integer-like weight | Count/weight of similar events represented by row | 32 unique values; mostly `1`. |
-| `hotel_continent` | Categorical code | Hotel continent code | 7 unique values; mostly code `2`. |
-| `hotel_country` | Categorical code | Hotel country code | 178 unique values; mostly code `50`. |
-| `hotel_market` | Categorical code | Hotel market identifier | 1,843 unique values. |
-| `hotel_cluster` | Categorical code / label | Hotel cluster (often used as recommendation/class label) | 100 unique cluster labels. |
+| Column | What it is | Actual interpretation (how to read it) |
+|---|---|---|
+| `Unnamed: 0` | Technical row ID from source extract | Unique row key from the original file export. Use it only for tracking rows; do not use as a business feature. |
+| `date_time` | Search event timestamp | The exact time the user performed the search action. This is event time (not travel date). |
+| `site_name` | Site/brand code | Which Expedia site/brand captured the event. Different codes represent different storefronts/local sites. |
+| `posa_continent` | Point-of-sale continent code | Continent of the sales market where the booking/search was made (user purchase market context). |
+| `user_location_country` | User country code | Country code of the user at search time. Useful for demand source segmentation. |
+| `user_location_region` | User region/state code | Sub-country location for the user (state/province-like code, system-defined). |
+| `user_location_city` | User city code | City-level location code for the searching user. High-cardinality location identifier. |
+| `orig_destination_distance` | Distance value | Approximate distance between user origin and destination. Larger values generally indicate long-haul intent; missing in many rows. |
+| `user_id` | Anonymous user identifier | Pseudonymous customer ID. Lets you count distinct users and repeated behavior over time. |
+| `is_mobile` | Binary flag | `1` means the event came from mobile; `0` means non-mobile (desktop/web). |
+| `is_package` | Binary flag | `1` means the interaction was package-related (bundle flow); `0` means stand-alone travel flow. |
+| `channel` | Acquisition channel code | Marketing/distribution channel for the session (internal numeric channel taxonomy). |
+| `srch_ci` | Check-in date | Intended trip start date the user searched for. Compare with `date_time` to compute booking/search lead time. |
+| `srch_co` | Check-out date | Intended trip end date. `srch_co - srch_ci` gives stay length (nights). |
+| `srch_adults_cnt` | Adults count | Number of adults in the requested trip/room search party. |
+| `srch_children_cnt` | Children count | Number of children included in the search party. |
+| `srch_rm_cnt` | Rooms count | Number of hotel rooms requested in the search. |
+| `srch_destination_id` | Destination code | System destination identifier the user searched for (city/area-level destination grouping). |
+| `srch_destination_type_id` | Destination type code | Type/hierarchy of destination (for example city/region/other internal grouping). |
+| `is_booking` | Conversion flag | `1` means this interaction ended in a booking; `0` means it did not convert. |
+| `cnt` | Event count weight | Number of similar events represented by this row. Use as weight in totals/rates when appropriate. |
+| `hotel_continent` | Hotel continent code | Continent where the candidate/booked hotel is located. |
+| `hotel_country` | Hotel country code | Country where the candidate/booked hotel is located. |
+| `hotel_market` | Hotel market code | Internal market/geography grouping for hotels. Useful for market-level performance reporting. |
+| `hotel_cluster` | Hotel cluster label code | Cluster/category assigned to hotels (modeling/recommendation label), not a numeric ranking. |
 
 ## Practical interpretation tips
 
