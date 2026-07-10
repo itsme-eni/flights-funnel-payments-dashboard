@@ -66,17 +66,6 @@ This means:
 - `date_time` is event time, while `srch_ci`/`srch_co` are stay dates. Feature engineering should keep this distinction.
 - `orig_destination_distance` has significant missingness and may need imputation or missing-indicator features.
 
-## Recommended cleaning for downstream analysis
-
-1. Drop or ignore `Unnamed: 0` as a feature.
-2. Parse `date_time`, `srch_ci`, `srch_co` to datetime types.
-3. Create derived features: booking lead time, length of stay, weekend check-in, etc.
-4. Handle missing `orig_destination_distance` with either:
-	- imputation (median by market/region), or
-	- a missing flag + imputed value.
-5. Treat coded numeric fields as categorical where appropriate (`site_name`, `channel`, `hotel_cluster`, etc.).
-6. Decide early whether to use `cnt` as sample weight in KPIs/models.
-
 ## Profiling artifact
 
 Detailed machine-readable profile was generated at:
