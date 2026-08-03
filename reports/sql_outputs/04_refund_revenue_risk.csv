@@ -1,0 +1,9 @@
+device,refund_status,records,successful_revenue_usd,refund_amount_usd,net_retained_revenue_usd,refund_rate_pct_of_success_revenue
+desktop,not_requested,6324,2830708.67,0.0,2830708.67,0.0
+mobile,not_requested,698,304896.12,0.0,304896.12,0.0
+desktop,approved,245,107781.69,94852.21,12929.48,88.0
+desktop,rejected,61,27512.03,0.0,27512.03,0.0
+desktop,pending,43,21208.25,14298.41,6909.84,67.42
+mobile,approved,17,6863.38,5418.73,1444.65,78.95
+mobile,rejected,11,3653.74,0.0,3653.74,0.0
+mobile,pending,3,2291.81,1823.79,468.02,79.58

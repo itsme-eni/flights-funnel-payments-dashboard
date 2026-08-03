@@ -1,0 +1,11 @@
+ticket_status,ticketing_error_code,ticket_records,avg_delay_minutes,median_delay_minutes,p90_delay_minutes
+issued,NONE,7147,69.92,24.0,44.0
+not_issued_payment_failed,NONE,720,,,
+failed,AIRLINE_CONFIRMATION_FAILED,47,29.81,26.0,40.0
+pending,AIRLINE_CONFIRMATION_FAILED,44,68.23,35.5,44.0
+pending,TICKETING_TIMEOUT,40,101.38,26.0,58.4
+pending,SUPPLIER_ERROR,36,57.14,23.5,42.0
+failed,TICKETING_TIMEOUT,26,25.38,27.0,40.0
+pending,INVENTORY_MISMATCH,24,36.25,31.5,42.7
+failed,SUPPLIER_ERROR,23,47.83,23.0,40.4
+failed,INVENTORY_MISMATCH,15,35.33,26.0,44.2

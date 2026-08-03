@@ -1,0 +1,7 @@
+stage,stage_count,pct_of_search_events
+search_events,100000.0,100.0
+bookings,8122.0,8.12
+payment_attempts,8122.0,8.12
+payment_successes,7402.0,7.4
+tickets_issued,7147.0,7.15
+refund_requests,380.0,0.38

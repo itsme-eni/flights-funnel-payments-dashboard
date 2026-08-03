@@ -1,0 +1,13 @@
+device,payment_method,payment_attempts,payment_successes,payment_failures,success_rate_pct,failure_rate_pct,attempted_revenue_usd,successful_revenue_usd
+desktop,credit_card,2843,2592.0,251.0,91.17,8.83,1261841.85,1147523.57
+desktop,debit_card,1557,1417.0,140.0,91.01,8.99,714089.06,648306.25
+desktop,paypal,965,894.0,71.0,92.64,7.36,434332.0,401321.86
+desktop,apple_pay,687,629.0,58.0,91.56,8.44,303300.43,274230.07
+desktop,bank_transfer,632,571.0,61.0,90.35,9.65,282371.1,261013.94
+desktop,google_pay,625,570.0,55.0,91.2,8.8,280450.11,254814.95
+mobile,credit_card,325,283.0,42.0,87.08,12.92,135950.38,117673.54
+mobile,debit_card,174,159.0,15.0,91.38,8.62,66550.63,60926.56
+mobile,paypal,110,105.0,5.0,95.45,4.55,51959.7,49781.0
+mobile,apple_pay,70,61.0,9.0,87.14,12.86,34128.55,30348.09
+mobile,bank_transfer,70,62.0,8.0,88.57,11.43,32372.89,29905.96
+mobile,google_pay,64,59.0,5.0,92.19,7.81,29900.49,29069.9

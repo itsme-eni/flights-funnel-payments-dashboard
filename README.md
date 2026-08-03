@@ -158,9 +158,18 @@ Why:
 
 - SQL provides transparent, auditable metric logic and production-style analysis flow.
 
-Planned outputs:
+Outputs:
 
 - SQL scripts in `sql/`
+- query result exports in `reports/sql_outputs/`
+
+SQL query guide:
+
+- `sql/01_funnel_overview.sql`: stage counts and stage-to-search conversion percentages.
+- `sql/02_payment_performance.sql`: payment attempts, success/failure rates, and revenue by device/method.
+- `sql/03_ticketing_performance.sql`: ticket status/error distribution and delay percentiles.
+- `sql/04_refund_revenue_risk.sql`: refund impact on successful-payment revenue and net retained revenue.
+- `sql/05_segment_diagnostics.sql`: high-risk country/destination/device segments for failures and refunds.
 
 ### Step 5: Python Exploratory Analysis
 
@@ -208,7 +217,7 @@ Planned outputs:
 
 - [x] Cleaned dataset
 - [x] Synthetic payment/ticket/refund event tables
-- [ ] SQL analysis
+- [x] SQL analysis
 - [ ] Python exploratory analysis
 - [ ] Tableau dashboard
 - [ ] Stakeholder memo with recommendations
@@ -281,6 +290,22 @@ Expected output:
 - `data/processed/refund_events.csv`
 - console summary: row count and refund requested share
 
+### 7) Run SQL analysis pack
+
+```bash
+python src/run_sql_analysis.py
+```
+
+Expected output:
+
+- CSV outputs in `reports/sql_outputs/`
+- one result file per query in `sql/`:
+	- `01_funnel_overview.csv`
+	- `02_payment_performance.csv`
+	- `03_ticketing_performance.csv`
+	- `04_refund_revenue_risk.csv`
+	- `05_segment_diagnostics.csv`
+
 ## Quick Start (One-Pass Order)
 
 Run this exact order for the current implemented pipeline:
@@ -290,6 +315,7 @@ python src/build_search_booking_events.py
 python src/generate_payment_events.py
 python src/generate_ticket_events.py
 python src/generate_refund_events.py
+python src/run_sql_analysis.py
 ```
 
 What you can inspect right after running:
@@ -298,6 +324,7 @@ What you can inspect right after running:
 2. Payment reliability from `payment_status` and `payment_error_code`.
 3. Ticket fulfillment quality from `ticket_status` and `ticketing_delay_minutes`.
 4. Revenue leakage risk from `refund_requested`, `refund_status`, and `refund_amount`.
+5. SQL KPI tables in `reports/sql_outputs/` ready for dashboard inputs.
 
 ## Current Progress Snapshot
 
@@ -306,11 +333,11 @@ Completed:
 - Raw data understanding and dictionary
 - Cleaned base events table
 - Synthetic payment/ticket/refund event generation
+- SQL KPI analysis outputs
 - Project documentation and run workflow
 
 Next:
 
-- SQL KPI layer in `sql/`
 - Python exploratory analysis outputs
 - Tableau dashboard and screenshots
 - Stakeholder memo with recommendations
