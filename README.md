@@ -30,7 +30,13 @@ Current key files:
 
 - `data/raw/travel_agency_data.csv` (raw source for this pipeline)
 - `data/processed/search_booking_events.csv` (cleaned output)
+- `data/processed/payment_events.csv` (synthetic payment attempts/outcomes)
+- `data/processed/ticket_events.csv` (synthetic ticketing outcomes)
+- `data/processed/refund_events.csv` (synthetic refund lifecycle outcomes)
 - `src/build_search_booking_events.py` (cleaning + profiling script)
+- `src/generate_payment_events.py` (Step 6: payment event generation)
+- `src/generate_ticket_events.py` (Step 7: ticket event generation)
+- `src/generate_refund_events.py` (Step 8: refund event generation)
 - `data/data_dictionary.md` (column definitions and interpretation)
 
 ## Workflow: Steps and Whys
@@ -81,11 +87,66 @@ Why:
 - Raw file covers search/booking behavior but not full operations funnel.
 - Needed to analyze post-booking reliability and revenue risk.
 
-Planned outputs:
+Outputs:
 
 - `data/processed/payment_events.csv`
 - `data/processed/ticket_events.csv`
 - `data/processed/refund_events.csv`
+
+## What Synthetic Operational Events Mean
+
+The project adds three synthetic operational tables to extend the funnel beyond booking.
+
+### Payment Events (`payment_events.csv`)
+
+Each row is one payment attempt for a booked record.
+
+What it tells you:
+
+- whether the user successfully paid or failed (`payment_status`)
+- why payments failed (`payment_error_code`)
+- which payment methods/devices/countries underperform
+- payment amount and transaction context for revenue impact
+
+Typical KPIs:
+
+- payment success rate
+- payment failure rate by device/method/country/destination
+- gross attempted revenue
+
+### Ticket Events (`ticket_events.csv`)
+
+Each row tracks post-payment ticketing outcome.
+
+What it tells you:
+
+- whether successful payment led to fulfillment (`ticket_status`)
+- how long ticketing took (`ticketing_delay_minutes`)
+- operational failure modes (`ticketing_error_code`)
+
+Typical KPIs:
+
+- ticket issuance rate after successful payment
+- delayed ticket share
+- ticketing failure rate and error mix
+
+### Refund Events (`refund_events.csv`)
+
+Each row tracks refund state for successful payment records.
+
+What it tells you:
+
+- whether refund was requested (`refund_requested`)
+- final disposition (`refund_status`)
+- reason categories (`refund_reason`)
+- financial leakage (`refund_amount`)
+
+Typical KPIs:
+
+- refund request rate
+- approved refund rate
+- refund amount rate vs total successful payment amount
+- net retained revenue
 
 ### Step 4: SQL Analysis Layer
 
@@ -146,7 +207,7 @@ Planned outputs:
 ## Deliverables Checklist
 
 - [x] Cleaned dataset
-- [ ] Synthetic payment/ticket/refund event tables
+- [x] Synthetic payment/ticket/refund event tables
 - [ ] SQL analysis
 - [ ] Python exploratory analysis
 - [ ] Tableau dashboard
@@ -186,3 +247,70 @@ python src/build_search_booking_events.py
 Expected output:
 
 - `data/processed/search_booking_events.csv`
+
+### 4) Generate payment events
+
+```bash
+python src/generate_payment_events.py
+```
+
+Expected output:
+
+- `data/processed/payment_events.csv`
+- console summary: row count, success rate, mobile vs desktop failure rates
+
+### 5) Generate ticket events
+
+```bash
+python src/generate_ticket_events.py
+```
+
+Expected output:
+
+- `data/processed/ticket_events.csv`
+- console summary: row count and issued share
+
+### 6) Generate refund events
+
+```bash
+python src/generate_refund_events.py
+```
+
+Expected output:
+
+- `data/processed/refund_events.csv`
+- console summary: row count and refund requested share
+
+## Quick Start (One-Pass Order)
+
+Run this exact order for the current implemented pipeline:
+
+```bash
+python src/build_search_booking_events.py
+python src/generate_payment_events.py
+python src/generate_ticket_events.py
+python src/generate_refund_events.py
+```
+
+What you can inspect right after running:
+
+1. Funnel stage counts from each output table size.
+2. Payment reliability from `payment_status` and `payment_error_code`.
+3. Ticket fulfillment quality from `ticket_status` and `ticketing_delay_minutes`.
+4. Revenue leakage risk from `refund_requested`, `refund_status`, and `refund_amount`.
+
+## Current Progress Snapshot
+
+Completed:
+
+- Raw data understanding and dictionary
+- Cleaned base events table
+- Synthetic payment/ticket/refund event generation
+- Project documentation and run workflow
+
+Next:
+
+- SQL KPI layer in `sql/`
+- Python exploratory analysis outputs
+- Tableau dashboard and screenshots
+- Stakeholder memo with recommendations

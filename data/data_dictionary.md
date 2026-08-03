@@ -73,3 +73,59 @@ Detailed machine-readable profile was generated at:
 - `data/raw/raw_profile_summary.json`
 
 This file contains per-column non-null counts, null percentages, unique counts, and top values.
+
+## Synthetic operational event tables
+
+To complete the funnel after booking, this project also generates synthetic operational tables in `data/processed/`.
+
+### `payment_events.csv`
+
+Purpose:
+
+- Represents payment attempts for booked records.
+
+Core fields:
+
+- `payment_id`, `booking_id`, `customer_id`
+- `payment_attempt_time`
+- `payment_method`, `payment_status`, `payment_error_code`
+- `amount`, `currency`, `device`, `country`, `route_or_destination`
+
+Interpretation:
+
+- This is where post-booking conversion can fail.
+- Use it to analyze payment reliability and payment-related revenue risk.
+
+### `ticket_events.csv`
+
+Purpose:
+
+- Represents ticketing outcomes after payment.
+
+Core fields:
+
+- `ticket_id`, `booking_id`, `payment_id`
+- `ticket_status`, `ticket_issued_time`
+- `ticketing_error_code`, `ticketing_delay_minutes`
+
+Interpretation:
+
+- A successful payment does not always guarantee ticket issuance.
+- Use it to measure fulfillment reliability and operational delays.
+
+### `refund_events.csv`
+
+Purpose:
+
+- Represents refund lifecycle outcomes for successful payments.
+
+Core fields:
+
+- `refund_id`, `booking_id`, `payment_id`
+- `refund_requested`, `refund_status`, `refund_reason`
+- `refund_amount`, `refund_request_time`
+
+Interpretation:
+
+- Captures revenue leakage after fulfillment/payment.
+- Use it to quantify refund drivers and net retained revenue.
