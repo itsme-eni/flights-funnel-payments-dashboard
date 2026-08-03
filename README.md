@@ -186,13 +186,3 @@ python src/build_search_booking_events.py
 Expected output:
 
 - `data/processed/search_booking_events.csv`
-
-## Notes and Assumptions
-
-- This is a portfolio simulation project, not a production Booking.com dataset.
-- Many columns are numeric category codes (IDs), not human-readable values.
-- `cnt` can represent event weight and should be considered in KPI aggregation design.
-
-## Next Milestone
-
-Build synthetic operational event tables (payment, ticket, refund) to complete the full funnel from booking through fulfillment and reimbursement.
