@@ -206,9 +206,10 @@ Why:
 
 - Turns analysis into fast, decision-ready monitoring views.
 
-Planned outputs:
+Outputs:
 
-- Tableau workbook/screenshots in `dashboard/`
+- Tableau dashboard screenshots in `dashboard/tableau_screenshots/`
+- `dashboard/tableau_screenshots/Flights Core Services Health Dashboard.png`
 
 ### Step 7: Stakeholder Memo + Recommendations
 
@@ -230,7 +231,7 @@ Planned outputs:
 - [x] Synthetic payment/ticket/refund event tables
 - [x] SQL analysis
 - [x] Python exploratory analysis
-- [ ] Tableau dashboard
+- [x] Tableau dashboard
 - [ ] Stakeholder memo with recommendations
 - [ ] Final polished README
 
@@ -361,9 +362,9 @@ Completed:
 - Synthetic payment/ticket/refund event generation
 - SQL KPI analysis outputs
 - Python exploratory analysis notebook outputs
+- Tableau dashboard and screenshot outputs
 - Project documentation and run workflow
 
 Next:
 
-- Tableau dashboard and screenshots
 - Stakeholder memo with recommendations
