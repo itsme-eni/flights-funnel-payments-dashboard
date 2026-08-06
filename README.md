@@ -37,6 +37,7 @@ Current key files:
 - `src/generate_payment_events.py` (Step 6: payment event generation)
 - `src/generate_ticket_events.py` (Step 7: ticket event generation)
 - `src/generate_refund_events.py` (Step 8: refund event generation)
+- `notebooks/step5_exploratory_analysis.ipynb` (Step 5: exploratory analysis notebook)
 - `data/data_dictionary.md` (column definitions and interpretation)
 
 ## Workflow: Steps and Whys
@@ -181,9 +182,19 @@ Why:
 
 - Helps explain metric movements and surface actionable drivers.
 
-Planned outputs:
+Outputs:
 
-- Analysis scripts/notebooks in `src/` and/or `notebooks/`
+- `notebooks/step5_exploratory_analysis.ipynb`
+
+Notebook coverage:
+
+- loads all processed datasets
+- validates row counts and key table relationships
+- computes funnel metrics, conversion rates, and drop-offs
+- analyzes payment failures, ticketing failures, and refund patterns
+- calculates revenue at risk from failed payments
+- creates matplotlib charts for core KPIs
+- prints 5 plain-English business insights
 
 ### Step 6: Tableau Dashboard
 
@@ -218,7 +229,7 @@ Planned outputs:
 - [x] Cleaned dataset
 - [x] Synthetic payment/ticket/refund event tables
 - [x] SQL analysis
-- [ ] Python exploratory analysis
+- [x] Python exploratory analysis
 - [ ] Tableau dashboard
 - [ ] Stakeholder memo with recommendations
 - [ ] Final polished README
@@ -306,6 +317,20 @@ Expected output:
 	- `04_refund_revenue_risk.csv`
 	- `05_segment_diagnostics.csv`
 
+### 8) Run Step 5 exploratory notebook
+
+Open and run all cells in:
+
+- `notebooks/step5_exploratory_analysis.ipynb`
+
+Expected output:
+
+- validation prints for table counts and key joins
+- funnel conversion and drop-off table
+- payment/ticket/refund diagnostic tables
+- 4 KPI charts (funnel counts, failure rates, top errors, revenue at risk)
+- 5 plain-English insights at the end
+
 ## Quick Start (One-Pass Order)
 
 Run this exact order for the current implemented pipeline:
@@ -316,6 +341,7 @@ python src/generate_payment_events.py
 python src/generate_ticket_events.py
 python src/generate_refund_events.py
 python src/run_sql_analysis.py
+# then run all cells in notebooks/step5_exploratory_analysis.ipynb
 ```
 
 What you can inspect right after running:
@@ -334,10 +360,10 @@ Completed:
 - Cleaned base events table
 - Synthetic payment/ticket/refund event generation
 - SQL KPI analysis outputs
+- Python exploratory analysis notebook outputs
 - Project documentation and run workflow
 
 Next:
 
-- Python exploratory analysis outputs
 - Tableau dashboard and screenshots
 - Stakeholder memo with recommendations
