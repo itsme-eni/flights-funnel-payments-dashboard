@@ -4,7 +4,7 @@ Portfolio project (Booking.com-style Data Analyst II case study) focused on end-
 
 Search -> Booking -> Payment Attempt -> Payment Success -> Ticket Issued -> Refund
 
-The project combines Python, SQL, and Tableau to explain where users drop off, where revenue is at risk, and what product/ops actions can improve conversion.
+The project combines Python, SQL, and Tableau to identify funnel drop-offs, quantify revenue-at-risk, and translate findings into practical product and operations recommendations.
 
 Practice-project note:
 
@@ -21,6 +21,13 @@ This project is designed to answer:
 2. Which segments (mobile, package, channel, market) underperform?
 3. How much revenue is blocked by payment failures and refunds?
 4. What operational recommendations could improve conversion and reduce leakage?
+
+## What This Demonstrates
+
+- End-to-end analytics workflow from raw data to stakeholder recommendations
+- Production-style metric logic using reusable SQL analysis files
+- Practical event modeling for missing operational stages (payments, ticketing, refunds)
+- Communication deliverables across notebook, dashboard, and business memo
 
 ## Project Structure
 
@@ -229,7 +236,7 @@ Why:
 Outputs:
 
 - `reports/stakeholder_memo.md`
-- includes a hypothetical 30-day production action plan for portfolio demonstration
+- Includes a hypothetical 30-day production action plan for portfolio demonstration
 
 ## Deliverables Checklist
 
@@ -239,7 +246,7 @@ Outputs:
 - [x] Python exploratory analysis
 - [x] Tableau dashboard
 - [x] Stakeholder memo with recommendations
-- [ ] Final polished README
+- [x] Final polished README
 
 ## How To Run
 
@@ -359,7 +366,15 @@ What you can inspect right after running:
 4. Revenue leakage risk from `refund_requested`, `refund_status`, and `refund_amount`.
 5. SQL KPI tables in `reports/sql_outputs/` ready for dashboard inputs.
 
-## Current Progress Snapshot
+## Outputs To Review
+
+- Data dictionary: `data/data_dictionary.md`
+- SQL outputs: `reports/sql_outputs/`
+- Exploratory notebook: `notebooks/step5_exploratory_analysis.ipynb`
+- Tableau screenshot: `dashboard/tableau_screenshots/Flights Core Services Health Dashboard.png`
+- Stakeholder memo: `reports/stakeholder_memo.md`
+
+## Project Status
 
 Completed:
 
@@ -372,6 +387,6 @@ Completed:
 - Stakeholder memo with recommendations
 - Project documentation and run workflow
 
-Next:
+Status:
 
-- Optional portfolio packaging (publish repo, add Tableau/Public links, add resume bullets)
+- Complete (practice case study)
