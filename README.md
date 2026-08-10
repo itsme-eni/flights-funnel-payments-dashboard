@@ -6,6 +6,11 @@ Search -> Booking -> Payment Attempt -> Payment Success -> Ticket Issued -> Refu
 
 The project combines Python, SQL, and Tableau to explain where users drop off, where revenue is at risk, and what product/ops actions can improve conversion.
 
+Practice-project note:
+
+- This is a static case-study dataset used for portfolio practice.
+- Recommendations in the stakeholder memo are written as a hypothetical production roadmap.
+
 ## Why This Project
 
 Travel funnels are multi-step and failure-prone. Looking only at bookings hides critical issues in payment processing and post-booking outcomes.
@@ -221,9 +226,10 @@ Why:
 
 - Good analytics is measured by decision quality, not only technical output.
 
-Planned outputs:
+Outputs:
 
 - `reports/stakeholder_memo.md`
+- includes a hypothetical 30-day production action plan for portfolio demonstration
 
 ## Deliverables Checklist
 
@@ -232,7 +238,7 @@ Planned outputs:
 - [x] SQL analysis
 - [x] Python exploratory analysis
 - [x] Tableau dashboard
-- [ ] Stakeholder memo with recommendations
+- [x] Stakeholder memo with recommendations
 - [ ] Final polished README
 
 ## How To Run
@@ -363,8 +369,9 @@ Completed:
 - SQL KPI analysis outputs
 - Python exploratory analysis notebook outputs
 - Tableau dashboard and screenshot outputs
+- Stakeholder memo with recommendations
 - Project documentation and run workflow
 
 Next:
 
-- Stakeholder memo with recommendations
+- Optional portfolio packaging (publish repo, add Tableau/Public links, add resume bullets)
