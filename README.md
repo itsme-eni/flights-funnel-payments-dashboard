@@ -1,6 +1,6 @@
 # Flights Funnel + Payments Dashboard
 
-Portfolio project (Data Analyst II case study) focused on end-to-end funnel analytics:
+Portfolio project focused on end-to-end funnel analytics:
 
 Search -> Booking -> Payment Attempt -> Payment Success -> Ticket Issued -> Refund
 
