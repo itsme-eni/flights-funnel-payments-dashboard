@@ -1,6 +1,6 @@
 # Flights Funnel + Payments Dashboard
 
-Portfolio project (Booking.com-style Data Analyst II case study) focused on end-to-end funnel analytics:
+Portfolio project (Data Analyst II case study) focused on end-to-end funnel analytics:
 
 Search -> Booking -> Payment Attempt -> Payment Success -> Ticket Issued -> Refund
 
@@ -41,11 +41,11 @@ This project is designed to answer:
 Current key files:
 
 - `data/raw/travel_agency_data.csv` (raw source for this pipeline)
-- `data/processed/search_booking_events.csv` (cleaned output)
+- `data/processed/search__events.csv` (cleaned output)
 - `data/processed/payment_events.csv` (synthetic payment attempts/outcomes)
 - `data/processed/ticket_events.csv` (synthetic ticketing outcomes)
 - `data/processed/refund_events.csv` (synthetic refund lifecycle outcomes)
-- `src/build_search_booking_events.py` (cleaning + profiling script)
+- `src/build_search__events.py` (cleaning + profiling script)
 - `src/generate_payment_events.py` (Step 6: payment event generation)
 - `src/generate_ticket_events.py` (Step 7: ticket event generation)
 - `src/generate_refund_events.py` (Step 8: refund event generation)
@@ -70,7 +70,7 @@ Outputs:
 - `data/data_dictionary.md`
 - `data/raw/raw_profile_summary.json`
 
-### Step 2: Build Cleaned Search/Booking Events Table
+### Step 2: Build Cleaned Search/ Events Table
 
 What:
 
@@ -83,13 +83,13 @@ Why:
 
 Outputs:
 
-- `data/processed/search_booking_events.csv`
+- `data/processed/search__events.csv`
 
 ### Step 3: Create Synthetic Payment/Ticket/Refund Event Tables
 
 What:
 
-- Generate realistic downstream operational events linked to booking events:
+- Generate realistic downstream operational events linked to  events:
 	- payment attempts
 	- payment successes/failures
 	- ticket issuance
@@ -97,8 +97,8 @@ What:
 
 Why:
 
-- Raw file covers search/booking behavior but not full operations funnel.
-- Needed to analyze post-booking reliability and revenue risk.
+- Raw file covers search/ behavior but not full operations funnel.
+- Needed to analyze post- reliability and revenue risk.
 
 Outputs:
 
@@ -108,7 +108,7 @@ Outputs:
 
 ## What Synthetic Operational Events Mean
 
-The project adds three synthetic operational tables to extend the funnel beyond booking.
+The project adds three synthetic operational tables to extend the funnel beyond .
 
 ### Payment Events (`payment_events.csv`)
 
@@ -275,12 +275,12 @@ pip install -r requirements.txt
 ### 3) Build cleaned dataset
 
 ```bash
-python src/build_search_booking_events.py
+python src/build_search__events.py
 ```
 
 Expected output:
 
-- `data/processed/search_booking_events.csv`
+- `data/processed/search__events.csv`
 
 ### 4) Generate payment events
 
@@ -350,7 +350,7 @@ Expected output:
 Run this exact order for the current implemented pipeline:
 
 ```bash
-python src/build_search_booking_events.py
+python src/build_search__events.py
 python src/generate_payment_events.py
 python src/generate_ticket_events.py
 python src/generate_refund_events.py
